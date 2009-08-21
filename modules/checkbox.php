@@ -73,6 +73,9 @@ function wpcf7_checkbox_shortcode_handler( $tag ) {
 
 	$posted = is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) && $wpcf7_contact_form->is_posted();
 
+	//Array to store HTML of items until it can be glued together with 
+	//<BR>s between checkbox items
+	$items = array();
 	foreach ( $values as $key => $value ) {
 		$checked = false;
 
@@ -111,9 +114,10 @@ function wpcf7_checkbox_shortcode_handler( $tag ) {
 			// $item = '<label for="'.$this_id.'">' . $item . '</label>';
 
 		// $item = '<span class="wpcf7-list-item">' . $item . '</span>';
-		$html .= $item;
+		$items[] = $item;
 	}
-
+	$html .= implode("\n    ",$items);
+	
 	$html = '<span' . $atts . '>' . $html . '</span>';
 
 	$validation_error = '';
