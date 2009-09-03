@@ -90,7 +90,7 @@ add_filter( 'wpcf7_form_tag', 'icl_wpcf7_form_tag_filter' );
 /* Message dispaly filter */
 
 function icl_wpcf7_display_message_filter( $message ) {
-	$shortcode_manager = new WPCF7_ShortcodeManager();
+	$shortcode_manager = new WPCF8_ShortcodeManager();
 	$shortcode_manager->add_shortcode( 'icl', 'icl_wpcf7_shortcode_handler', true );
 
 	return $shortcode_manager->do_shortcode( $message );
@@ -147,7 +147,7 @@ function icl_wpcf7_collect_strings( &$contact_form ) {
 
 	$messages = (array) $contact_form->messages;
 
-	$shortcode_manager = new WPCF7_ShortcodeManager();
+	$shortcode_manager = new WPCF8_ShortcodeManager();
 	$shortcode_manager->add_shortcode( 'icl', create_function( '$tag', 'return null;' ), true );
 
 	foreach ( $messages as $message ) {

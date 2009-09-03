@@ -1,6 +1,6 @@
 <?php
 
-class WPCF7_ContactForm {
+class WPCF8_ContactForm {
 
 	var $initial = false;
 
@@ -44,7 +44,7 @@ class WPCF7_ContactForm {
 		$form .= '<form action="' . $url . '" method="post" class="wpcf7-form"' . $enctype . '>';
 		$form .= '<div style="display: none;">';
 		$form .= '<input type="hidden" name="_wpcf7" value="' . $this->id . '" />';
-		$form .= '<input type="hidden" name="_wpcf7_version" value="' . WPCF7_VERSION . '" />';
+		$form .= '<input type="hidden" name="_wpcf7_version" value="' . WPCF8_VERSION . '" />';
 		$form .= '<input type="hidden" name="_wpcf7_unit_tag" value="' . $this->unit_tag . '" />';
 		$form .= '</div>';
 		$form .= $this->form_elements();
@@ -103,7 +103,7 @@ class WPCF7_ContactForm {
 		$form = $wpcf7_shortcode_manager->do_shortcode( $form );
 		$this->scanned_form_tags = $wpcf7_shortcode_manager->scanned_tags;
 
-		if ( WPCF7_AUTOP )
+		if ( WPCF8_AUTOP )
 			$form = wpcf7_autop( $form );
 
 		return $form;
@@ -287,7 +287,7 @@ class WPCF7_ContactForm {
 
 			$value = $_POST[$name];
 
-			if ( WPCF7_USE_PIPE && is_a( $pipes, 'WPCF7_Pipes' ) && ! $pipes->zero() ) {
+			if ( WPCF8_USE_PIPE && is_a( $pipes, 'WPCF8_Pipes' ) && ! $pipes->zero() ) {
 				if ( is_array( $value) ) {
 					$new_value = array();
 					foreach ( $value as $v ) {
@@ -471,7 +471,7 @@ class WPCF7_ContactForm {
 	}
 
 	function copy() {
-		$new = new WPCF7_ContactForm();
+		$new = new WPCF8_ContactForm();
 		$new->initial = true;
 
 		$new->title = $this->title . '_copy';
@@ -515,7 +515,7 @@ function wpcf7_contact_form( $id ) {
 	if ( ! $row = $wpdb->get_row( $query ) )
 		return false; // No data
 
-	$contact_form = new WPCF7_ContactForm();
+	$contact_form = new WPCF8_ContactForm();
 	$contact_form->id = $row->cf7_unit_id;
 	$contact_form->title = stripslashes_deep( $row->title );
 	$contact_form->form = stripslashes_deep( maybe_unserialize( $row->form ) );
@@ -530,7 +530,7 @@ function wpcf7_contact_form( $id ) {
 }
 
 function wpcf7_contact_form_default_pack() {
-	$contact_form = new WPCF7_ContactForm();
+	$contact_form = new WPCF8_ContactForm();
 	$contact_form->initial = true;
 
 	$contact_form->title = __( 'Untitled', 'wpcf7' );

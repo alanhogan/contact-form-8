@@ -1,7 +1,7 @@
 <?php
 
 function wpcf7_admin_has_edit_cap() {
-	return current_user_can( WPCF7_ADMIN_READ_WRITE_CAPABILITY );
+	return current_user_can( WPCF8_ADMIN_READ_WRITE_CAPABILITY );
 }
 
 function wpcf7_admin_add_pages() {
@@ -11,7 +11,7 @@ function wpcf7_admin_add_pages() {
 		check_admin_referer( 'wpcf7-save_' . $id );
 
 		if ( ! $contact_form = wpcf7_contact_form( $id ) ) {
-			$contact_form = new WPCF7_ContactForm();
+			$contact_form = new WPCF8_ContactForm();
 			$contact_form->initial = true;
 		}
 
@@ -116,10 +116,10 @@ function wpcf7_admin_add_pages() {
 	}
 
 	add_menu_page( __( 'Contact Form 7', 'wpcf7' ), __( 'Contact', 'wpcf7' ),
-		WPCF7_ADMIN_READ_CAPABILITY, __FILE__, 'wpcf7_admin_management_page' );
+		WPCF8_ADMIN_READ_CAPABILITY, __FILE__, 'wpcf7_admin_management_page' );
 
 	add_submenu_page( __FILE__, __( 'Edit Contact Forms', 'wpcf7' ), __( 'Edit', 'wpcf7' ),
-		WPCF7_ADMIN_READ_CAPABILITY, __FILE__, 'wpcf7_admin_management_page' );
+		WPCF8_ADMIN_READ_CAPABILITY, __FILE__, 'wpcf7_admin_management_page' );
 }
 
 add_action( 'admin_menu', 'wpcf7_admin_add_pages' );
@@ -163,7 +163,7 @@ function wpcf7_admin_load_js() {
 	if ( false === strpos( $_GET['page'], 'contact-form-7' ) )
 		return;
 
-	wp_enqueue_script( 'wpcf7-admin', wpcf7_plugin_url( 'admin/wpcf7-admin.js' ), array('jquery'), WPCF7_VERSION, true );
+	wp_enqueue_script( 'wpcf7-admin', wpcf7_plugin_url( 'admin/wpcf7-admin.js' ), array('jquery'), WPCF8_VERSION, true );
 	wp_localize_script( 'wpcf7-admin', '_wpcf7L10n', array(
 		'optional' => __( 'optional', 'wpcf7' ),
 		'generateTag' => __( 'Generate Tag', 'wpcf7' ),
@@ -255,7 +255,7 @@ function wpcf7_admin_management_page() {
 		$cf = wpcf7_contact_form( $current );
 	}
 
-	require_once WPCF7_PLUGIN_DIR . '/admin/admin-panel.php';
+	require_once WPCF8_PLUGIN_DIR . '/admin/admin-panel.php';
 }
 
 /* Install and default settings */
@@ -316,7 +316,7 @@ function wpcf7_install() {
 	}
 }
 
-add_action( 'activate_' . WPCF7_PLUGIN_BASENAME, 'wpcf7_install' );
+add_action( 'activate_' . WPCF8_PLUGIN_BASENAME, 'wpcf7_install' );
 
 /* Misc */
 
@@ -326,7 +326,7 @@ function wpcf7_admin_url( $file, $query = array() ) {
 		$file = 'admin/' . $file;
 
 	$path = 'admin.php';
-	$path .= '?page=' . WPCF7_PLUGIN_NAME . '/' . $file;
+	$path .= '?page=' . WPCF8_PLUGIN_NAME . '/' . $file;
 
 	if ( $query = build_query( $query ) )
 		$path .= '&' . $query;
@@ -337,7 +337,7 @@ function wpcf7_admin_url( $file, $query = array() ) {
 }
 
 function wpcf7_plugin_action_links( $links, $file ) {
-	if ( $file != WPCF7_PLUGIN_BASENAME )
+	if ( $file != WPCF8_PLUGIN_BASENAME )
 		return $links;
 
 	$url = wpcf7_admin_url( 'admin.php' );
@@ -352,7 +352,7 @@ function wpcf7_plugin_action_links( $links, $file ) {
 add_filter( 'plugin_action_links', 'wpcf7_plugin_action_links', 10, 2 );
 
 function wpcf7_donation_link() {
-	if ( ! WPCF7_SHOW_DONATION_LINK )
+	if ( ! WPCF8_SHOW_DONATION_LINK )
 		return;
 
 	if ( 'new' == $_GET['contactform'] || ! empty($_GET['message']) )

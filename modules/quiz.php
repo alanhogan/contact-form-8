@@ -52,7 +52,7 @@ function wpcf7_quiz_shortcode_handler( $tag ) {
 	if ( $maxlength_att )
 		$atts .= ' maxlength="' . $maxlength_att . '"';
 
-	if ( is_a( $pipes, 'WPCF7_Pipes' ) && ! $pipes->zero() ) {
+	if ( is_a( $pipes, 'WPCF8_Pipes' ) && ! $pipes->zero() ) {
 		$pipe = $pipes->random_pipe();
 		$question = $pipe->before;
 		$answer = $pipe->after;
@@ -69,7 +69,7 @@ function wpcf7_quiz_shortcode_handler( $tag ) {
 	$html .= '<input type="hidden" name="_wpcf7_quiz_answer_' . $name . '" value="' . wp_hash( $answer, 'wpcf7_quiz' ) . '" />';
 
 	$validation_error = '';
-	if ( is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) )
+	if ( is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) )
 		$validation_error = $wpcf7_contact_form->validation_error( $name );
 
 	$html = '<span class="wpcf7-form-control-wrap ' . $name . '">' . $html . $validation_error . '</span>';
@@ -107,7 +107,7 @@ add_filter( 'wpcf7_validate_quiz', 'wpcf7_quiz_validation_filter', 10, 2 );
 function wpcf7_quiz_ajax_echo_filter( $items ) {
 	global $wpcf7_contact_form;
 
-	if ( ! is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) )
+	if ( ! is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) )
 		return $items;
 
 	if ( ! is_array( $items ) )
@@ -128,7 +128,7 @@ function wpcf7_quiz_ajax_echo_filter( $items ) {
 		if ( empty( $name ) )
 			continue;
 
-		if ( is_a( $pipes, 'WPCF7_Pipes' ) && ! $pipes->zero() ) {
+		if ( is_a( $pipes, 'WPCF8_Pipes' ) && ! $pipes->zero() ) {
 			$pipe = $pipes->random_pipe();
 			$question = $pipe->before;
 			$answer = $pipe->after;

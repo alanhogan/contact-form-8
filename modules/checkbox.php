@@ -66,12 +66,12 @@ function wpcf7_checkbox_shortcode_handler( $tag ) {
 
 	$html = '';
 
-	if ( preg_match( '/^checkbox[*]?$/', $type ) && ! $multiple && WPCF7_LOAD_JS )
+	if ( preg_match( '/^checkbox[*]?$/', $type ) && ! $multiple && WPCF8_LOAD_JS )
 		$onclick = ' onclick="wpcf7ExclusiveCheckbox(this);"';
 
 	$input_type = rtrim( $type, '*' );
 
-	$posted = is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) && $wpcf7_contact_form->is_posted();
+	$posted = is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) && $wpcf7_contact_form->is_posted();
 
 	//Array to store HTML of items until it can be glued together with 
 	//<BR>s between checkbox items
@@ -116,12 +116,12 @@ function wpcf7_checkbox_shortcode_handler( $tag ) {
 		// $item = '<span class="wpcf7-list-item">' . $item . '</span>';
 		$items[] = $item;
 	}
-	$html .= implode("\n    ",$items);
+	$html .= implode("\n",$items);
 	
 	$html = '<span' . $atts . '>' . $html . '</span>';
 
 	$validation_error = '';
-	if ( is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) )
+	if ( is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) )
 		$validation_error = $wpcf7_contact_form->validation_error( $name );
 
 	$html = '<span class="wpcf7-form-control-wrap ' . $name . '">' . $html . $validation_error . '</span>';

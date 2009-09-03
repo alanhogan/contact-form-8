@@ -1,6 +1,6 @@
 <?php
 
-class WPCF7_ShortcodeManager {
+class WPCF8_ShortcodeManager {
 
 	var $shortcode_tags = array();
 
@@ -65,8 +65,8 @@ class WPCF7_ShortcodeManager {
 			}
 			$scanned_tag['raw_values'] = (array) $attr['values'];
 
-			if ( WPCF7_USE_PIPE ) {
-				$pipes = new WPCF7_Pipes( $scanned_tag['raw_values'] );
+			if ( WPCF8_USE_PIPE ) {
+				$pipes = new WPCF8_Pipes( $scanned_tag['raw_values'] );
 				$scanned_tag['values'] = $pipes->collect_befores();
 				$scanned_tag['pipes'] = $pipes;
 			} else {
@@ -117,7 +117,7 @@ class WPCF7_ShortcodeManager {
 
 }
 
-$wpcf7_shortcode_manager = new WPCF7_ShortcodeManager();
+$wpcf7_shortcode_manager = new WPCF8_ShortcodeManager();
 
 function wpcf7_add_shortcode( $tag, $func, $has_name = false ) {
 	global $wpcf7_shortcode_manager;

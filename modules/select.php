@@ -55,7 +55,7 @@ function wpcf7_select_shortcode_handler( $tag ) {
 
 	$html = '';
 
-	$posted = is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) && $wpcf7_contact_form->is_posted();
+	$posted = is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) && $wpcf7_contact_form->is_posted();
 
 	foreach ( $values as $key => $value ) {
 		$selected = false;
@@ -86,7 +86,7 @@ function wpcf7_select_shortcode_handler( $tag ) {
 	$html = '<select name="' . $name . ( $multiple ? '[]' : '' ) . '"' . $atts . '>' . $html . '</select>';
 
 	$validation_error = '';
-	if ( is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) )
+	if ( is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) )
 		$validation_error = $wpcf7_contact_form->validation_error( $name );
 
 	$html = '<span class="wpcf7-form-control-wrap ' . $name . '">' . $html . $validation_error . '</span>';

@@ -1,11 +1,11 @@
 <?php
 
-class WPCF7_Pipe {
+class WPCF8_Pipe {
 
 	var $before = '';
 	var $after = '';
 
-	function WPCF7_Pipe( $text ) {
+	function WPCF8_Pipe( $text ) {
 		$pipe_pos = strpos( $text, '|' );
 		if ( false === $pipe_pos ) {
 			$this->before = $this->after = $text;
@@ -16,11 +16,11 @@ class WPCF7_Pipe {
 	}
 }
 
-class WPCF7_Pipes {
+class WPCF8_Pipes {
 
 	var $pipes = array();
 
-	function WPCF7_Pipes( $texts ) {
+	function WPCF8_Pipes( $texts ) {
 		if ( ! is_array( $texts ) )
 			return;
 
@@ -30,7 +30,7 @@ class WPCF7_Pipes {
 	}
 
 	function add_pipe( $text ) {
-		$pipe = new WPCF7_Pipe( $text );
+		$pipe = new WPCF8_Pipe( $text );
 		$this->pipes[] = $pipe;
 	}
 

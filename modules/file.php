@@ -43,7 +43,7 @@ function wpcf7_file_shortcode_handler( $tag ) {
 	$html = '<input type="file" name="' . $name . '"' . $atts . ' value="1" />';
 
 	$validation_error = '';
-	if ( is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) )
+	if ( is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) )
 		$validation_error = $wpcf7_contact_form->validation_error( $name );
 
 	$html = '<span class="wpcf7-form-control-wrap ' . $name . '">' . $html . $validation_error . '</span>';

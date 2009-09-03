@@ -59,7 +59,7 @@ function wpcf7_textarea_shortcode_handler( $tag ) {
 		$atts .= ' rows="10"'; // default size
 
 	// Value
-	if ( is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) && $wpcf7_contact_form->is_posted() ) {
+	if ( is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) && $wpcf7_contact_form->is_posted() ) {
 		if ( isset( $_POST['_wpcf7_mail_sent'] ) && $_POST['_wpcf7_mail_sent']['ok'] )
 			$value = '';
 		else
@@ -74,7 +74,7 @@ function wpcf7_textarea_shortcode_handler( $tag ) {
 	$html = '<textarea name="' . $name . '"' . $atts . '>' . esc_html( $value ) . '</textarea>';
 
 	$validation_error = '';
-	if ( is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) )
+	if ( is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) )
 		$validation_error = $wpcf7_contact_form->validation_error( $name );
 
 	$html = '<span class="wpcf7-form-control-wrap ' . $name . '">' . $html . $validation_error . '</span>';

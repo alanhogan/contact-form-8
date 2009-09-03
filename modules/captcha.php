@@ -20,7 +20,7 @@ function wpcf7_captcha_shortcode_handler( $tag ) {
 		return '';
 
 	$validation_error = '';
-	if ( is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) )
+	if ( is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) )
 		$validation_error = $wpcf7_contact_form->validation_error( $name );
 
 	$atts = '';
@@ -52,7 +52,7 @@ function wpcf7_captcha_shortcode_handler( $tag ) {
 		$atts .= ' class="' . trim( $class_att ) . '"';
 
 	// Value.
-	if ( is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) && $wpcf7_contact_form->is_posted() )
+	if ( is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) && $wpcf7_contact_form->is_posted() )
 		$value = '';
 	else
 		$value = $values[0];
@@ -134,7 +134,7 @@ add_filter( 'wpcf7_validate_captchar', 'wpcf7_captcha_validation_filter', 10, 2 
 function wpcf7_captcha_ajax_echo_filter( $items ) {
 	global $wpcf7_contact_form;
 
-	if ( ! is_a( $wpcf7_contact_form, 'WPCF7_ContactForm' ) )
+	if ( ! is_a( $wpcf7_contact_form, 'WPCF8_ContactForm' ) )
 		return $items;
 
 	if ( ! is_array( $items ) )
