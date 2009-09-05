@@ -65,18 +65,12 @@ Since being published in August 2007, Contact Form 7 has been translated into a 
 == Installation ==
 
 1. Upload the entire `contact-form-8` folder to the `/wp-content/plugins/` directory.
-=======
-If you have created your own language pack, or have an update of an existing one, you can send [gettext .po and .mo files](http://codex.wordpress.org/Translating_WordPress) to me so that I can bundle it into Contact Form 7.
 
-== Installation ==
+2. Activate the plugin through the 'Plugins' menu in WordPress.
 
-1. Upload the entire `contact-form-7` folder to the `/wp-content/plugins/` directory.
->>>>>>> 85e8df69483b16ad470c9d168fc3c3bf0f0714fb:README.txt
-1. Activate the plugin through the 'Plugins' menu in WordPress.
+3. You will find 'Contact' menu in your WordPress admin panel.
 
-You will find 'Contact' menu in your WordPress admin panel.
-
-For basic usage, you can also have a look at the [plugin homepage](http://ideasilo.wordpress.com/2007/04/30/contact-form-7/) and [FAQ](http://ideasilo.wordpress.com/2008/03/29/contact-form-7-faq/).
+For basic usage, you can also have a look at the [Contact Form 7 plugin homepage](http://ideasilo.wordpress.com/2007/04/30/contact-form-7/) and [FAQ](http://ideasilo.wordpress.com/2008/03/29/contact-form-7-faq/).
 
 == Frequently Asked Questions ==
 
