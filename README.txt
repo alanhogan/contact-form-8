@@ -5,9 +5,6 @@ Requires at least: 2.7
 Tested up to: 2.9-rare
 Stable tag: 2.0.1
 
-License: GPL?
-
-
 == Description ==
 
 A fork of Contact Form 7 (by takayukister), Contact Form 8 improves things like checkboxes (labels!).
@@ -19,6 +16,17 @@ Contact Form 7 and Contact Form 8 can manage multiple contact forms, plus you ca
 **Now multiple checkboxes are not on one line, and clicking the label always toggles the checkbox.**
 
 The CAPTCHA module has been separated as the [Really Simple CAPTCHA](http://wordpress.org/extend/plugins/really-simple-captcha/) plugin, which is required if you would like to use CAPTCHAs in your contact form.
+=======
+A fork of Contact Form 7, Contact Form 8 improves things like checkboxes (labels!).
+
+== Description ==
+
+Just another contact form plugin. Simple but flexible.
+
+Contact Form 7 can manage multiple contact forms, plus you can customize the form and the mail contents flexibly with simple markup. The form supports Ajax-powered submitting, CAPTCHA, Akismet spam filtering and so on.
+
+**Note: Contact Form 7's CAPTCHA module has been separated as [Really Simple CAPTCHA](http://wordpress.org/extend/plugins/really-simple-captcha/) plugin. Now you need to install it if you use CAPTCHA. If you don't, you can use as in the past.**
+>>>>>>> 85e8df69483b16ad470c9d168fc3c3bf0f0714fb:README.txt
 
 Since being published in August 2007, Contact Form 7 has been translated into a number of languages. Our thanks and appreciation must go to the following for their contributions:
 
@@ -65,9 +73,17 @@ Since being published in August 2007, Contact Form 7 has been translated into a 
 * Ukrainian (uk_UA) - [Andrey Kovba](http://myserver.com.ua/)
 * Vietnamese (vi) - Thanh Hải, Hà
 
+<<<<<<< HEAD:README.txt
 == Installation ==
 
 1. Upload the entire `contact-form-8` folder to the `/wp-content/plugins/` directory.
+=======
+If you have created your own language pack, or have an update of an existing one, you can send [gettext .po and .mo files](http://codex.wordpress.org/Translating_WordPress) to me so that I can bundle it into Contact Form 7.
+
+== Installation ==
+
+1. Upload the entire `contact-form-7` folder to the `/wp-content/plugins/` directory.
+>>>>>>> 85e8df69483b16ad470c9d168fc3c3bf0f0714fb:README.txt
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 
 You will find 'Contact' menu in your WordPress admin panel.
